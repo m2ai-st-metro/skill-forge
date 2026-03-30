@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/m2ai-portfolio/skill-forge/schema/skill-registry-v1.json",
+  "title": "Skill Registry Entry",
+  "description": "Schema for skill-registry.yaml sidecar files that track skills in the Skill Forge registry",
+  "type": "object",
+  "required": ["name", "version", "status", "created", "source", "taxonomy", "metrics", "learning", "lineage"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique skill identifier (matches directory name)",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the skill",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle state of the skill",
+      "enum": ["draft", "active", "under_review", "refined", "deprecated"]
+    },
+    "created": {
+      "type": "string",
+      "description": "ISO date when the skill was first committed",
+      "format": "date"
+    },
+    "last_reviewed": {
+      "type": ["string", "null"],
+      "description": "ISO date of last review pass",
+      "format": "date"
+    },
+    "sync_hash": {
+      "type": ["string", "null"],
+      "description": "SHA256 hash of the deployed SKILL.md in ~/.claude/skills/ — null if not deployed or not yet computed",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "source": {
+      "type": "object",
+      "description": "Attribution and provenance of the skill",
+      "required": ["type", "author"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Source category",
+          "enum": ["youtube", "newsletter", "community", "autoresearch", "internal", "documentation"]
+        },
+        "url": {
+          "type": ["string", "null"],
+          "description": "URL of the source material"
+        },
+        "author": {
+          "type": "string",
+          "description": "Author or creator of the source material"
+        },
+        "date": {
+          "type": ["string", "null"],
+          "description": "ISO date of the source material",
+          "format": "date"
+        }
+      },
+      "additionalProperties": false
+    },
+    "taxonomy": {
+      "type": "object",
+      "description": "Classification of the skill",
+      "required": ["domain", "complexity"],
+      "properties": {
+        "domain": {
+          "type": "string",
+          "description": "Functional domain the skill belongs to",
+          "enum": [
+            "context-management",
+            "agent-architecture",
+            "code-quality",
+            "security",
+            "strategic-analysis",
+            "content-creation",
+            "developer-tooling",
+            "deployment"
+          ]
+        },
+        "complexity": {
+          "type": "string",
+          "description": "Skill complexity level",
+          "enum": ["beginner", "intermediate", "advanced"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Usage and health metrics",
+      "required": ["invocations_30d", "last_invoked", "manual_rating", "health_score"],
+      "properties": {
+        "invocations_30d": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "last_invoked": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "manual_rating": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "health_score": {
+          "type": ["number", "null"],
+          "description": "Composite health score from 0-100",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    "learning": {
+      "type": "object",
+      "description": "Learning loop metadata for Sky-Lynx patch tracking",
+      "required": ["total_patches_applied", "total_patches_proposed"],
+      "properties": {
+        "total_patches_applied": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_patches_proposed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "last_patch_at": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "effectiveness_score": {
+          "type": ["number", "null"],
+          "description": "Aggregate effectiveness from -1.0 to 1.0",
+          "minimum": -1.0,
+          "maximum": 1.0
+        }
+      },
+      "additionalProperties": false
+    },
+    "lineage": {
+      "type": "object",
+      "description": "Version history and derivation tracking",
+      "required": ["parent_version", "derived_from", "changelog"],
+      "properties": {
+        "parent_version": {
+          "type": ["string", "null"],
+          "description": "Previous version this was derived from"
+        },
+        "derived_from": {
+          "type": ["string", "null"],
+          "description": "Skill this was forked/derived from"
+        },
+        "changelog": {
+          "type": "array",
+          "description": "List of change entries",
+          "items": {
+            "type": "object",
+            "required": ["version", "date", "summary"],
+            "properties": {
+              "version": {
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+$"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              },
+              "summary": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Other skills or tools this skill depends on",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
