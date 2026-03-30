@@ -6,8 +6,8 @@
 generated_at: "2026-03-30"
 total_skills: 18
 by_status:
-  active: 14
-  draft: 4
+  active: 17
+  draft: 1
 
 skills:
   - name: agent-cost-model
@@ -54,7 +54,7 @@ skills:
 
   - name: counterargument-stress-test
     version: "1.0.0"
-    status: draft
+    status: active
     domain: strategic-analysis
     health_score: null
 
@@ -66,7 +66,7 @@ skills:
 
   - name: executive-briefing
     version: "1.0.0"
-    status: draft
+    status: active
     domain: strategic-analysis
     health_score: null
 
@@ -78,7 +78,7 @@ skills:
 
   - name: geopolitical-signal-enricher
     version: "1.0.0"
-    status: draft
+    status: active
     domain: strategic-analysis
     health_score: null
 

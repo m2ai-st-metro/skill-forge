@@ -1,6 +1,6 @@
 name: geopolitical-signal-enricher
 version: "1.0.0"
-status: draft
+status: active
 created: "2026-03-30"
 last_reviewed: null
 sync_hash: 91298b8837fadb064d2d1f106cf3963af977f7f5e90a39a04e96f3c4bf61f32b
