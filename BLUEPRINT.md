@@ -1,7 +1,7 @@
 # BLUEPRINT — Skill Forge Dynamic Lifecycle
 
 > Strategy brief: `vault/projects/skill-forge-lifecycle-strategy-2026-03-30.md`
-> Status: PLANNING (2026-03-30)
+> Status: PHASE 2a COMPLETE (2026-03-30)
 > Reviewed: 2026-03-30 (aligned with st-agent-registry patterns post Phase 1-3 completion)
 
 ## Vision
@@ -16,12 +16,12 @@ Skills are first-class citizens with the same rigor as agents — registered, ve
 
 ---
 
-## Phase 1: Skill Registry & Lifecycle State
+## Phase 1: Skill Registry & Lifecycle State (COMPLETE)
 
 **Goal:** Replace flat-file skill storage with a structured, queryable registry.
 
 ### Deliverables
-- [ ] **Skill registry schema** — YAML sidecar per skill (`skill-registry.yaml`) alongside each `SKILL.md`, mirroring st-agent-registry's `registry.yaml` pattern:
+- [x] **Skill registry schema** — YAML sidecar per skill (`skill-registry.yaml`) alongside each `SKILL.md`, mirroring st-agent-registry's `registry.yaml` pattern:
   ```yaml
   name: context-hygiene
   version: "1.0.0"
@@ -59,11 +59,11 @@ Skills are first-class citizens with the same rigor as agents — registered, ve
 
   dependencies: []
   ```
-- [ ] **Lifecycle states**: `draft` → `active` → `under_review` → `refined` → `deprecated`
-- [ ] **Registry index** — aggregated `registry.yaml` at repo root for quick catalog queries
-- [ ] **Backfill existing skills** — generate registry files for all 22 current skills (11 on main, 11 in feature branches)
-- [ ] **Sync hash implementation** — detect drift between `~/.claude/skills/` (deployed) and repo source
-- [ ] **Forge pipeline update** — skill creation now produces `skill-registry.yaml` + `SKILL.md` together
+- [x] **Lifecycle states**: `draft` → `active` → `under_review` → `refined` → `deprecated`
+- [x] **Registry index** — aggregated `registry.yaml` at repo root for quick catalog queries
+- [x] **Backfill existing skills** — 18 skills backfilled (17 active, 1 draft)
+- [x] **Sync hash implementation** — `src/sync_hash.py` detects drift between `~/.claude/skills/` and repo
+- [x] **Forge pipeline update** — skill creation now produces `skill-registry.yaml` + `SKILL.md` together
 
 ### Design Decisions (Resolved)
 - **Manifest format**: YAML sidecar (`skill-registry.yaml`), matching st-agent-registry's `registry.yaml` convention. Not JSON, not frontmatter.
@@ -71,37 +71,56 @@ Skills are first-class citizens with the same rigor as agents — registered, ve
 
 ---
 
-## Phase 2: Invocation Tracking, Scorecard & Patch Pipeline
+## Phase 2a: Invocation Tracking & Health Scorecard (COMPLETE)
 
-**Goal:** Measure skill usage and health with proxy metrics. Reuse Metroplex patch infrastructure for skill refinement.
+**Goal:** Capture skill usage data and compute health scores from proxy metrics.
 
 ### Deliverables
-- [ ] **Invocation hook** — Claude Code hook that logs when a skill is activated
-  - Hook type: TBD (PreToolUse on Skill tool? PostToolUse?)
-  - Log target: SQLite table (`skill_invocations`) or append to registry metrics
-  - Fields: skill name, timestamp, session context (if available)
-- [ ] **Completion signal** — heuristic for whether skill invocation was successful
+- [x] **Invocation hook** — PostToolUse hook on `Skill` matcher
+  - Script: `~/.claude/scripts/log-skill-invocation.sh`
+  - Extracts skill name from `$CLAUDE_TOOL_INPUT` JSON, writes to SQLite
+  - 5s timeout, exit 0 always (never blocks session)
+- [x] **Invocation database** — `data/skill_invocations.db`
+  - Table: `skill_invocations` (id, skill_name, invoked_at, session_id)
+  - Indexed on skill_name and invoked_at
+  - Init script: `src/init_db.py`
+- [x] **Health scorecard** — `src/scorecard.py`
+  - Formula: invocations 40% + staleness 20% + deployed 20% + manual_rating 20%
+  - When manual_rating is null, weight redistributes (50/20/30/0)
+  - `--update` writes health_score + invocations_30d to registry files
+  - `--threshold N` flags underperformers (default: 30)
+- [x] **Forge audit command** — `audit-skills` section added to Forge CLAUDE.md
+  - Runs scorecard, decides action per flagged skill (deploy, refine, deprecate)
+
+### Design Decisions (Resolved)
+- **Hook type:** PostToolUse on Skill — fires after skill loads, confirms actual invocation
+- **Storage:** Centralized SQLite DB, synced to registry on scorecard run
+- **Threshold:** 30/100 to start — tunable as data accumulates
+- **Staleness decay:** 60-day window (100 at creation → 0 at 60 days)
+
+---
+
+## Phase 2b: Patch Pipeline & Sky-Lynx Integration
+
+**Goal:** Close the refinement loop — Sky-Lynx proposes patches, Metroplex applies them.
+
+> **Prerequisite:** Phase 2a operational with meaningful invocation data (2+ weeks).
+
+### Deliverables
+- [ ] **Completion signal** — heuristic for successful skill invocation
   - Positive: conversation continues normally after skill
   - Negative: user `/clear`, overrides skill output, abandons mid-skill
-  - This is a rough proxy — accuracy improves with Ego in Phase 4
-- [ ] **Health scorecard formula** — composite score from:
-  - Invocations (30d) — high weight
-  - Days since last refinement — medium weight
-  - Source still valid — medium weight (checked by AutoResearch in Phase 3)
-  - Manual rating — high weight (when provided)
+  - Rough proxy — accuracy improves with Ego in Phase 4
 - [ ] **`SkillUpgradePatch` contract** — mirrors `AgentUpgradePatch` from st-agent-registry:
   - Defined in st-records as a shared contract (same pattern as agent patches)
   - Fields: skill_name, patch_type (content | metadata | taxonomy), section, action (add | replace | remove), content, rationale
   - Stored in `skill_patches` table (Metroplex DB, alongside `agent_patches`)
   - Sky-Lynx proposes patches → Metroplex Gate 3 applies them → registry.yaml `learning` block updated
-- [ ] **Forge review command** — `audit-skills` reads scorecard, flags underperformers, optionally proposes `SkillUpgradePatch` for refinement
 - [ ] **Sky-Lynx integration** — skill health data available in Sky-Lynx analysis, skill patches proposed alongside agent patches
 
 ### Design Decisions to Make
-- Hook architecture — what's the least-intrusive way to capture invocation data?
-- Storage — per-skill registry update vs centralized invocation DB? (lean: centralized DB for query efficiency, sync to registry.yaml on review pass)
-- Threshold for "underperforming" — what score triggers a review flag?
 - Patch auto-apply — should `SkillUpgradePatch` follow the same `auto_apply_threshold` pattern from department learning policies?
+- Completion signal accuracy — how reliable is the proxy before Ego?
 
 ---
 
