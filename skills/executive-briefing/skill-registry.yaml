@@ -1,0 +1,35 @@
+name: executive-briefing
+version: "1.0.0"
+status: draft
+created: "2026-03-30"
+last_reviewed: null
+sync_hash: 5139f17eb0d44bf4ced5bee87664697bc487b1e3b375394a4ff99ccff0ff0845
+
+source:
+  type: newsletter
+  url: "https://natesnewsletter.substack.com"
+  author: "Nate Kadlac"
+  date: "2026-03-29"
+
+taxonomy:
+  domain: strategic-analysis
+  complexity: advanced
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog: []
+
+dependencies: []

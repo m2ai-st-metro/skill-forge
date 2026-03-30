@@ -1,0 +1,35 @@
+name: failure-postmortem
+version: "1.0.0"
+status: active
+created: "2026-03-27"
+last_reviewed: null
+sync_hash: dc08cd917335c948e88223246af9074b570cbab6929db967cedc01b1cd594256
+
+source:
+  type: newsletter
+  url: "https://natesnewsletter.substack.com"
+  author: "Nate Kadlac"
+  date: "2026-03-26"
+
+taxonomy:
+  domain: code-quality
+  complexity: advanced
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog: []
+
+dependencies: []

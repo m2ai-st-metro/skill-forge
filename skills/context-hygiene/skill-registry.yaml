@@ -1,0 +1,35 @@
+name: context-hygiene
+version: "1.0.0"
+status: active
+created: "2026-03-21"
+last_reviewed: null
+sync_hash: 0714b95f472ba31d3f81b485374a5f8b3b8e729ad3d11f877c48a72020a16c65
+
+source:
+  type: youtube
+  url: "https://youtube.com/watch?v=iALzJyvgCoM"
+  author: "Mark Kashef"
+  date: "2026-03-19"
+
+taxonomy:
+  domain: context-management
+  complexity: beginner
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog: []
+
+dependencies: []

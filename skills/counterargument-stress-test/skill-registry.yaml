@@ -1,0 +1,35 @@
+name: counterargument-stress-test
+version: "1.0.0"
+status: draft
+created: "2026-03-30"
+last_reviewed: null
+sync_hash: bd505ff0aaa84de6b907c8f52ab5ba2f629df49b0d8adc33e9e8f8e6c31468d6
+
+source:
+  type: newsletter
+  url: "https://natesnewsletter.substack.com"
+  author: "Nate Kadlac"
+  date: "2026-03-29"
+
+taxonomy:
+  domain: strategic-analysis
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog: []
+
+dependencies: []
