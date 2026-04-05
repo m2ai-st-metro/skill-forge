@@ -17,7 +17,7 @@ class TestGenerateProposal:
         "clarity": {"score": 10, "feedback": "Vague instructions"},
         "efficiency": {"score": 10, "feedback": "Some bloat"},
         "suggestions": ["Fix errors", "Add missing phases", "Clarify triggers"],
-        "evaluator_model": "gemini-2.0-flash",
+        "evaluator_model": "gemini-3-flash-preview",
     }
 
     def test_generates_proposal(self):
