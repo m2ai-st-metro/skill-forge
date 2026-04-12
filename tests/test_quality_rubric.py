@@ -42,7 +42,7 @@ class TestQualityResult:
             clarity=DimensionScore(name="clarity", score=scores[2], feedback="Great"),
             efficiency=DimensionScore(name="efficiency", score=scores[3], feedback="Bloated"),
             suggestions=["Fix thing 1", "Fix thing 2"],
-            evaluator_model="gemini-2.0-flash",
+            evaluator_model="gemini-3-flash-preview",
             evaluated_at="2026-04-03T12:00:00Z",
         )
 
@@ -73,7 +73,7 @@ class TestQualityResult:
         assert d["correctness"]["score"] == 20
         assert d["correctness"]["feedback"] == "Good"
         assert len(d["suggestions"]) == 2
-        assert d["evaluator_model"] == "gemini-2.0-flash"
+        assert d["evaluator_model"] == "gemini-3-flash-preview"
 
     def test_to_dict_has_all_dimensions(self):
         r = self._make_result()

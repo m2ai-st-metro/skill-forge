@@ -32,7 +32,7 @@ SKILLS_DIR = REPO_ROOT / "skills"
 RESULTS_DIR = REPO_ROOT / "data" / "ego_results"
 
 # Default judge model -- Gemini via google-generativeai SDK
-DEFAULT_MODEL = "gemini-2.0-flash"
+DEFAULT_MODEL = "gemini-3-flash-preview"
 
 
 def load_env():
