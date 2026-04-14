@@ -23,9 +23,9 @@ Content Source --> Technique Extraction --> SKILL.md Generation --> Review & Ins
 
 ---
 
-## Skill Catalog (48 skills)
+## Skill Catalog (50 skills)
 
-### Agent Architecture (7 skills)
+### Agent Architecture (8 skills)
 
 | Skill | Summary | Use When |
 |-------|---------|----------|
@@ -36,6 +36,7 @@ Content Source --> Technique Extraction --> SKILL.md Generation --> Review & Ins
 | **mismatch-check** | Detects expensive architecture mismatches (built solution to wrong question) | After building an agent that feels wrong or underperforms |
 | **model-router** | Classifies a task and recommends Opus/Sonnet/Haiku tier with cost delta | Routing tasks in a multi-model pipeline |
 | **eval-agent** | Scores any agent tool against 3 structural questions: memory, inspectability, compounding | Evaluating a new agent framework or tool before committing |
+| **sensemaking-concentrator** | Audit a multi-agent system for distributed sensemaking anti-patterns and recommend where to concentrate interpretation into a single agent | Debugging a multi-agent system where agents produce conflicting actions from the same input |
 
 ### Agent Quality & Operations (6 skills)
 
@@ -64,7 +65,7 @@ Content Source --> Technique Extraction --> SKILL.md Generation --> Review & Ins
 | **agent-doctor** | Comprehensive health check on connected services, API creds, MCP servers, tools | Something isn't working and you need a systems check |
 | **agent-readiness-audit** | Scores a codebase across 8 pillars for fitness to support autonomous AI agents | Evaluating whether a repo is ready for agent-driven development |
 
-### Strategic Analysis (7 skills)
+### Strategic Analysis (8 skills)
 
 | Skill | Summary | Use When |
 |-------|---------|----------|
@@ -75,6 +76,7 @@ Content Source --> Technique Extraction --> SKILL.md Generation --> Review & Ins
 | **geopolitical-signal-enricher** | Enriches market/tech signals with geopolitical context and second-order effects | Adding geopolitical depth to any market signal or trend |
 | **counterargument-stress-test** | Generates and addresses the N strongest counterarguments against any thesis | Before publishing, presenting, or deciding on a strategic position |
 | **strategic-timing-matrix** | Maps decisions against macro events and market windows: accelerate/delay/hedge | Timing a launch, investment, or strategic move |
+| **management-function-audit** | Takes an org change description and classifies which management functions (routing, sensemaking, accountability) were removed, retained, or weakened — predicts failure modes with historical precedents | Auditing a reorg, layer removal, or any restructuring to understand what will break and in what order |
 
 ### Developer Tooling (5 skills)
 
@@ -256,7 +258,7 @@ skills/
 
 ```
 skill-forge/
-  skills/               # 48 skills (cold archive + active)
+  skills/               # 50 skills (cold archive + active)
   data/
     intake/             # Newsletter/content input staging
     skill_invocations.db # Invocation tracking (SQLite)
