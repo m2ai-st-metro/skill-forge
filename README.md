@@ -221,7 +221,7 @@ Skills that cover similar ground (kept for different use cases):
 ### Install a Single Skill
 
 ```bash
-git clone https://github.com/m2ai-ultra-magnus-IF/skill-forge.git
+git clone https://github.com/m2ai-st-metro/skill-forge.git
 cp -r skill-forge/skills/classify-agent ~/.claude/skills/
 ```
 
@@ -230,7 +230,7 @@ Restart Claude Code. The skill will be available as a slash command (`/classify-
 ### Install All Skills
 
 ```bash
-git clone https://github.com/m2ai-ultra-magnus-IF/skill-forge.git
+git clone https://github.com/m2ai-st-metro/skill-forge.git
 cp -r skill-forge/skills/* ~/.claude/skills/
 ```
 
