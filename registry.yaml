@@ -118,3 +118,21 @@ skills:
     domain: content-creation
     health_score: 19.0
 
+  - name: cross-model-peer-review
+    version: "1.0.0"
+    status: draft
+    domain: agent-architecture
+    health_score: 0.0
+
+  - name: api-breaking-change-scanner
+    version: "1.0.0"
+    status: draft
+    domain: developer-tooling
+    health_score: 0.0
+
+  - name: hallucination-audit-trail
+    version: "1.0.0"
+    status: draft
+    domain: agent-architecture
+    health_score: 0.0
+
