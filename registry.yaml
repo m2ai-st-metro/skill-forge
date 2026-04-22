@@ -4,9 +4,9 @@
 # Regenerate: python src/build_registry.py
 
 generated_at: "2026-03-30"
-total_skills: 18
+total_skills: 19
 by_status:
-  active: 17
+  active: 18
   draft: 1
 
 skills:
@@ -117,4 +117,10 @@ skills:
     status: draft
     domain: content-creation
     health_score: 19.0
+
+  - name: world-model-readiness-diagnostic
+    version: "1.0.0"
+    status: active
+    domain: strategic-analysis
+    health_score: 0.0
 
