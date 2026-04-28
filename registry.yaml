@@ -118,3 +118,39 @@ skills:
     domain: content-creation
     health_score: 19.0
 
+  - name: workflow-fit-scorer
+    version: "1.0.0"
+    status: draft
+    source:
+      type: newsletter
+      url: "https://natesnewsletter.substack.com/p/your-team-spends-5-hours-a-week-on"
+      author: "Nate Kadlac"
+      date: "2026-04-27"
+    taxonomy:
+      domain: agent-architecture
+      complexity: beginner
+
+  - name: recognizable-quality-test-generator
+    version: "1.0.0"
+    status: draft
+    source:
+      type: newsletter
+      url: "https://natesnewsletter.substack.com/p/your-team-spends-5-hours-a-week-on"
+      author: "Nate Kadlac"
+      date: "2026-04-27"
+    taxonomy:
+      domain: agent-architecture
+      complexity: intermediate
+
+  - name: build-spec-generator
+    version: "1.0.0"
+    status: draft
+    source:
+      type: newsletter
+      url: "https://natesnewsletter.substack.com/p/your-team-spends-5-hours-a-week-on"
+      author: "Nate Kadlac"
+      date: "2026-04-27"
+    taxonomy:
+      domain: agent-architecture
+      complexity: beginner
+
