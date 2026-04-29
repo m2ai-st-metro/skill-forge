@@ -118,3 +118,39 @@ skills:
     domain: content-creation
     health_score: 19.0
 
+  - name: stress-test-finder
+    version: "1.0.0"
+    status: draft
+    source:
+      type: newsletter
+      url: "https://natesnewsletter.substack.com/p/chatgpt-55-scored-87-where-the-next"
+      author: "Nate Kadlac"
+      date: "2026-04-28"
+    taxonomy:
+      domain: productivity
+      complexity: beginner
+
+  - name: artifact-contract-validator
+    version: "1.0.0"
+    status: draft
+    source:
+      type: newsletter
+      url: "https://natesnewsletter.substack.com/p/chatgpt-55-scored-87-where-the-next"
+      author: "Nate Kadlac"
+      date: "2026-04-28"
+    taxonomy:
+      domain: code-quality
+      complexity: intermediate
+
+  - name: image-to-implementation
+    version: "1.0.0"
+    status: draft
+    source:
+      type: newsletter
+      url: "https://natesnewsletter.substack.com/p/chatgpt-55-scored-87-where-the-next"
+      author: "Nate Kadlac"
+      date: "2026-04-28"
+    taxonomy:
+      domain: developer-tooling
+      complexity: beginner
+
