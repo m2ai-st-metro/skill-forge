@@ -3,11 +3,11 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-04-30"
-total_skills: 21
+generated_at: "2026-05-01"
+total_skills: 24
 by_status:
   active: 17
-  draft: 4
+  draft: 7
 
 skills:
   - name: agent-cost-model
@@ -27,6 +27,12 @@ skills:
     status: active
     domain: developer-tooling
     health_score: 18.3
+
+  - name: artifact-contract-validator
+    version: "1.0.0"
+    status: draft
+    domain: code-quality
+    health_score: null
 
   - name: boot-tax-monitor
     version: "1.0.0"
@@ -88,6 +94,12 @@ skills:
     domain: strategic-analysis
     health_score: 50.0
 
+  - name: image-to-implementation
+    version: "1.0.0"
+    status: draft
+    domain: developer-tooling
+    health_score: null
+
   - name: mismatch-check
     version: "1.0.0"
     status: active
@@ -118,6 +130,12 @@ skills:
     domain: code-quality
     health_score: 49.0
 
+  - name: stress-test-finder
+    version: "1.0.0"
+    status: draft
+    domain: productivity
+    health_score: null
+
   - name: token-burn-auditor
     version: "1.0.0"
     status: draft
@@ -135,40 +153,4 @@ skills:
     status: draft
     domain: content-creation
     health_score: 19.0
-
-  - name: stress-test-finder
-    version: "1.0.0"
-    status: draft
-    source:
-      type: newsletter
-      url: "https://natesnewsletter.substack.com/p/chatgpt-55-scored-87-where-the-next"
-      author: "Nate Kadlac"
-      date: "2026-04-28"
-    taxonomy:
-      domain: productivity
-      complexity: beginner
-
-  - name: artifact-contract-validator
-    version: "1.0.0"
-    status: draft
-    source:
-      type: newsletter
-      url: "https://natesnewsletter.substack.com/p/chatgpt-55-scored-87-where-the-next"
-      author: "Nate Kadlac"
-      date: "2026-04-28"
-    taxonomy:
-      domain: code-quality
-      complexity: intermediate
-
-  - name: image-to-implementation
-    version: "1.0.0"
-    status: draft
-    source:
-      type: newsletter
-      url: "https://natesnewsletter.substack.com/p/chatgpt-55-scored-87-where-the-next"
-      author: "Nate Kadlac"
-      date: "2026-04-28"
-    taxonomy:
-      domain: developer-tooling
-      complexity: beginner
 
