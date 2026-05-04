@@ -4,10 +4,10 @@
 # Regenerate: python src/build_registry.py
 
 generated_at: "2026-05-04"
-total_skills: 28
+total_skills: 31
 by_status:
   active: 17
-  draft: 11
+  draft: 14
 
 skills:
   - name: agent-cost-model
@@ -50,6 +50,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: developer-productivity
+    health_score: null
+
+  - name: build-spec-generator
+    version: "1.0.0"
+    status: draft
+    domain: agent-architecture
     health_score: null
 
   - name: classify-agent
@@ -136,6 +142,12 @@ skills:
     domain: security
     health_score: 18.3
 
+  - name: recognizable-quality-test-generator
+    version: "1.0.0"
+    status: draft
+    domain: agent-architecture
+    health_score: null
+
   - name: remote-channels
     version: "1.0.0"
     status: active
@@ -181,36 +193,6 @@ skills:
   - name: workflow-fit-scorer
     version: "1.0.0"
     status: draft
-    source:
-      type: newsletter
-      url: "https://natesnewsletter.substack.com/p/your-team-spends-5-hours-a-week-on"
-      author: "Nate Kadlac"
-      date: "2026-04-27"
-    taxonomy:
-      domain: agent-architecture
-      complexity: beginner
-
-  - name: recognizable-quality-test-generator
-    version: "1.0.0"
-    status: draft
-    source:
-      type: newsletter
-      url: "https://natesnewsletter.substack.com/p/your-team-spends-5-hours-a-week-on"
-      author: "Nate Kadlac"
-      date: "2026-04-27"
-    taxonomy:
-      domain: agent-architecture
-      complexity: intermediate
-
-  - name: build-spec-generator
-    version: "1.0.0"
-    status: draft
-    source:
-      type: newsletter
-      url: "https://natesnewsletter.substack.com/p/your-team-spends-5-hours-a-week-on"
-      author: "Nate Kadlac"
-      date: "2026-04-27"
-    taxonomy:
-      domain: agent-architecture
-      complexity: beginner
+    domain: agent-architecture
+    health_score: null
 
