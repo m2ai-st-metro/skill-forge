@@ -3,11 +3,11 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-05-04"
-total_skills: 31
+generated_at: "2026-05-06"
+total_skills: 37
 by_status:
   active: 17
-  draft: 14
+  draft: 20
 
 skills:
   - name: agent-cost-model
@@ -40,6 +40,12 @@ skills:
     domain: developer-tooling
     health_score: 18.3
 
+  - name: anticipation-gap-audit
+    version: "1.0.0"
+    status: draft
+    domain: agent-evaluation
+    health_score: 50.0
+
   - name: artifact-contract-validator
     version: "1.0.0"
     status: draft
@@ -56,6 +62,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: agent-architecture
+    health_score: null
+
+  - name: calendar-hygiene
+    version: "1.0.0"
+    status: draft
+    domain: productivity
     health_score: null
 
   - name: classify-agent
@@ -116,6 +128,30 @@ skills:
     version: "1.0.0"
     status: draft
     domain: developer-tooling
+    health_score: null
+
+  - name: inbox-load-audit
+    version: "1.0.0"
+    status: draft
+    domain: tool-management
+    health_score: 50.0
+
+  - name: judgment-gate
+    version: "1.0.0"
+    status: draft
+    domain: agent-safety
+    health_score: 50.0
+
+  - name: judgment-layer
+    version: "1.0.0"
+    status: draft
+    domain: agent-architecture
+    health_score: null
+
+  - name: make-anticipatory
+    version: "1.0.0"
+    status: draft
+    domain: agent-architecture
     health_score: null
 
   - name: mcp-spec-generator
