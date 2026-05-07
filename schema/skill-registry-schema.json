@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/m2ai-portfolio/skill-forge/schema/skill-registry-v1.json",
+  "$id": "https://gitlab.com/m2ai-st-metro/skill-forge/schema/skill-registry-v1.json",
   "title": "Skill Registry Entry",
   "description": "Schema for skill-registry.yaml sidecar files that track skills in the Skill Forge registry",
   "type": "object",
