@@ -3,11 +3,11 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-05-06"
-total_skills: 37
+generated_at: "2026-05-09"
+total_skills: 40
 by_status:
   active: 17
-  draft: 20
+  draft: 23
 
 skills:
   - name: agent-cost-model
@@ -81,6 +81,12 @@ skills:
     status: active
     domain: developer-tooling
     health_score: 17.7
+
+  - name: code-review-memory
+    version: "1.0.0"
+    status: draft
+    domain: code-review
+    health_score: null
 
   - name: context-fork-guide
     version: "1.0.0"
@@ -178,6 +184,12 @@ skills:
     domain: security
     health_score: 18.3
 
+  - name: provider-availability-scout
+    version: "1.0.0"
+    status: draft
+    domain: agent-infrastructure
+    health_score: null
+
   - name: recognizable-quality-test-generator
     version: "1.0.0"
     status: draft
@@ -189,6 +201,12 @@ skills:
     status: active
     domain: deployment
     health_score: 17.3
+
+  - name: session-work-log
+    version: "1.0.0"
+    status: draft
+    domain: agent-handoff
+    health_score: null
 
   - name: spec-gap-detector
     version: "1.0.0"
