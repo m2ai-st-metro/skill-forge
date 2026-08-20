@@ -449,6 +449,12 @@ skills:
     domain: planning
     health_score: null
 
+  - name: cmd-poll
+    version: "1.0.0"
+    status: cold
+    domain: agent-ops
+    health_score: null
+
   - name: code-review-memory
     version: "1.0.0"
     status: active
