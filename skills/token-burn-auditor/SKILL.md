@@ -1,6 +1,7 @@
 ---
 name: token-burn-auditor
 description: Audit the live Claude Code environment for token waste -- measures per-session overhead, flags system prompt bloat, checks plugin/skill loading totals, and gives before/after deltas when changes are made. Real-time linter for AI workflows.
+context: fork
 ---
 
 # Token Burn Auditor

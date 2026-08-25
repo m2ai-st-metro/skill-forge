@@ -1,8 +1,8 @@
 name: executive-briefing
 version: "1.0.0"
-status: active
+status: cold
 created: "2026-03-30"
-last_reviewed: null
+last_reviewed: "2026-08-24"
 sync_hash: 5139f17eb0d44bf4ced5bee87664697bc487b1e3b375394a4ff99ccff0ff0845
 
 source:
@@ -30,6 +30,7 @@ learning:
 lineage:
   parent_version: null
   derived_from: null
-  changelog: []
+  changelog:
+    - "2026-08-24: cold-archived from ~/.claude/skills/executive-briefing (14-day gate, 147 days stale, unsponsored, no invocations)"
 
 dependencies: []

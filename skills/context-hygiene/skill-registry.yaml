@@ -1,8 +1,8 @@
 name: context-hygiene
 version: "1.0.0"
-status: active
+status: cold
 created: "2026-03-21"
-last_reviewed: null
+last_reviewed: "2026-08-24"
 sync_hash: 0714b95f472ba31d3f81b485374a5f8b3b8e729ad3d11f877c48a72020a16c65
 
 source:
@@ -30,6 +30,7 @@ learning:
 lineage:
   parent_version: null
   derived_from: null
-  changelog: []
+  changelog:
+    - "2026-08-24: cold-archived from ~/.claude/skills/context-hygiene (14-day gate, 137 days stale, unsponsored, no invocations)"
 
 dependencies: []

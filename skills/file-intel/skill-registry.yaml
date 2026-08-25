@@ -1,0 +1,35 @@
+name: file-intel
+version: "1.0.0"
+status: cold
+created: "2026-08-24"
+last_reviewed: "2026-08-24"
+sync_hash: null
+
+source:
+  type: personal-skill-cold-archive
+  url: null
+  author: "Matthew Snow"
+  date: "2026-08-24"
+
+taxonomy:
+  domain: document-processing
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: "~/.claude/skills/file-intel (cold-archived 2026-08-24, 14-day gate, 110 days stale, unsponsored, no invocations)"
+  changelog: []
+
+dependencies: []

@@ -1,6 +1,7 @@
 ---
 name: boot-tax-monitor
 description: Monitor and alert when Claude Code session startup overhead (plugins, skills, MCP servers, CLAUDE.md chain) exceeds a configurable token threshold. Prevents the silent context bloat that eats your working memory before you type a single prompt.
+context: fork
 ---
 
 # Boot Tax Monitor

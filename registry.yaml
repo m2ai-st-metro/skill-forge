@@ -3,12 +3,12 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-08-18"
-total_skills: 259
+generated_at: "2026-08-24"
+total_skills: 261
 by_status:
-  active: 23
-  draft: 189
-  cold: 47
+  active: 20
+  draft: 187
+  cold: 54
 
 skills:
   - name: acceptance-constitution
@@ -343,7 +343,7 @@ skills:
 
   - name: boot-tax-monitor
     version: "1.0.0"
-    status: draft
+    status: cold
     domain: developer-productivity
     health_score: null
 
@@ -449,12 +449,6 @@ skills:
     domain: planning
     health_score: null
 
-  - name: cmd-poll
-    version: "1.0.0"
-    status: cold
-    domain: agent-ops
-    health_score: null
-
   - name: code-review-memory
     version: "1.0.0"
     status: active
@@ -511,13 +505,13 @@ skills:
 
   - name: context-fork-guide
     version: "1.0.0"
-    status: active
+    status: cold
     domain: context-management
     health_score: 47.0
 
   - name: context-hygiene
     version: "1.0.0"
-    status: active
+    status: cold
     domain: context-management
     health_score: 47.0
 
@@ -685,7 +679,7 @@ skills:
 
   - name: executive-briefing
     version: "1.0.0"
-    status: active
+    status: cold
     domain: strategic-analysis
     health_score: 50.0
 
@@ -729,6 +723,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: procurement
+    health_score: null
+
+  - name: file-intel
+    version: "1.0.0"
+    status: cold
+    domain: document-processing
     health_score: null
 
   - name: find-skills
@@ -1423,7 +1423,7 @@ skills:
 
   - name: token-burn-auditor
     version: "1.0.0"
-    status: draft
+    status: cold
     domain: developer-productivity
     health_score: null
 
@@ -1479,6 +1479,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: data-migration
+    health_score: null
+
+  - name: vault-setup
+    version: "1.0.0"
+    status: cold
+    domain: uncategorized
     health_score: null
 
   - name: vendor-pressure-test

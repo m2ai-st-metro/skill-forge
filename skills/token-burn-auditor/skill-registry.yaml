@@ -1,8 +1,8 @@
 name: token-burn-auditor
 version: "1.0.0"
-status: draft
+status: cold
 created: "2026-04-03"
-last_reviewed: null
+last_reviewed: "2026-08-24"
 sync_hash: null
 
 source:
@@ -30,6 +30,7 @@ learning:
 lineage:
   parent_version: null
   derived_from: null
-  changelog: []
+  changelog:
+    - "2026-08-24: cold-archived from ~/.claude/skills/token-burn-auditor (14-day gate, 110 days stale, unsponsored, chain-only reference from boot-tax-monitor, no invocations)"
 
 dependencies: []
