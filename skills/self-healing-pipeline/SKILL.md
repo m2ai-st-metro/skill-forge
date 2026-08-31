@@ -348,8 +348,26 @@ SAFETY-DOMAIN trigger did not fire and 1A.6 is a no-op).
 
 ----- STAGE 1A.6: FIRST-PASS SAFETY CONTRACT -----
 
-This stage runs ONLY when the SAFETY-DOMAIN trigger (Stage 1A, ~line 216)
-fired. On a first attempt there is no Ravage `## Prior-review-derived
+This stage runs when the SAFETY-DOMAIN trigger (Stage 1A, ~line 216) fired,
+with ONE CARVE-OUT (added 2026-06-09): checklist items #1 (gitignore/PII) and
+#2 (data-path) are DATA-HYGIENE checks that run on EVERY build whenever their
+own predicate matches -- the app persists a data dir / *.jsonl, or uses a CLI
+default data path -- INDEPENDENT of the safety-domain trigger. This mirrors
+Ravage's real gate: metroplex/gates/review.py runs those three deterministic
+checks (gitignore_covers_data, no_pii_artifact, data_path_not_install_dir)
+conditional on ARTIFACT PRESENCE, not on domain. So a non-safety app that
+nonetheless writes a data dir can still fail Ravage's gitignore/PII check at
+publish; gating items #1/#2 behind the safety trigger left that class of build
+unprotected. Items #3-#11 remain safety-domain-gated.
+
+Limitation (stopgap, not the full fix): these seeded rows are enforced by
+LLM-authored TESTS -- a second implementation of the check that can drift from
+review.py's actual logic (gitignore pattern matching, the
+`metroplex:review-allow` allowlist marker, the data-artifact definition). The
+durable fix is to extract review.py's `_check_safety` into a shared module the
+Builder invokes directly, so the in-loop check IS Ravage's gate rather than a
+proxy. Tracked as a follow-on; this skill-doc change only re-aligns the TRIGGER,
+not the implementation. On a first attempt there is no Ravage `## Prior-review-derived
 claims` appendix to copy from — yet the most damaging safety gaps (the
 #436 elder-care incident: negation acked as "did not happen", substring
 false-positives, lost audit writes, silent redaction, fsync parity) are
@@ -450,7 +468,14 @@ missed *original* claim.
 
 Only now, with `spec-claims.md` written and saved:
 
-1. Read the codebase in {target_dir} to understand the current state.
+1. RECON GATE (see ~/.claude/rules/recon-gated-planning.md): Read the codebase in
+   {target_dir} to understand the ACTUAL current state before designing anything.
+   Open every file you intend to change and read the real schema, call sites, and
+   config it depends on. Your design may only assert facts about existing state that
+   you read this run. Quote them ("Confirmed: function takes args A, B at file:line").
+   Any surface you did not read is an open question in the design, never a remembered
+   assumption. This kills the mismatched-schema / wrong-architecture failure where the
+   plan is built against the system as remembered, not as deployed.
 
 2. Design the implementation approach:
    - Identify which files need to change
@@ -554,6 +579,12 @@ After Planner completes:
   "Stage 1A.6 was not executed; emit a first-pass-safety SAFETY row for
   every applicable checklist predicate before Stage 1B" appended to the
   prompt (mirrors the Stage 1A.5 re-run above).
+- Verify the DATA-HYGIENE carve-out REGARDLESS of domain: if the build
+  persists a data dir / *.jsonl, or uses a CLI default data path,
+  `spec-claims.md` must contain the item #1 (gitignore/PII) and/or item #2
+  (data-path) `first-pass-safety` rows EVEN IF the safety-domain trigger did
+  not fire -- these mirror Ravage's domain-independent publish checks. Missing
+  -> re-run the Planner with the gap appended.
 - Verify every claim id in `spec-claims.md` is referenced at least once in
   `test-contract.md`. If not, the Planner failed — re-run it with the gap
   appended to the prompt.

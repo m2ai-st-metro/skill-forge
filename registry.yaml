@@ -3,12 +3,12 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-08-24"
-total_skills: 261
+generated_at: "2026-08-30"
+total_skills: 262
 by_status:
-  active: 20
+  active: 19
   draft: 187
-  cold: 54
+  cold: 56
 
 skills:
   - name: acceptance-constitution
@@ -905,6 +905,12 @@ skills:
     domain: quality-assurance
     health_score: null
 
+  - name: l5-sprint
+    version: "1.0.0"
+    status: cold
+    domain: build-automation
+    health_score: null
+
   - name: launch-filter
     version: "1.0.0"
     status: active
@@ -1273,7 +1279,7 @@ skills:
 
   - name: self-healing-pipeline
     version: "1.1.0"
-    status: active
+    status: cold
     domain: build-automation
     health_score: null
 
@@ -1321,7 +1327,7 @@ skills:
 
   - name: silver-platter
     version: "1.0.0"
-    status: active  # 2026-08-30 HIL: Matthew re-affirmed the 08-02 KEEP
+    status: cold
     domain: context-engineering
     health_score: null
 
@@ -1577,87 +1583,3 @@ skills:
     domain: strategic-analysis
     health_score: 0.0
 
-
-  - name: ai-audit
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: convert-documents-to-markdown
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: daily
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: hf-cli
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: human-review
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: mda
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: prompt-rewriter
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: provisioning
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: seedance-shot-prompt
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: site-style-audit
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: ain
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
-
-  - name: knowledge-compiler
-    version: "1.0.0"
-    status: cold
-    domain: general
-    health_score: null
-    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
