@@ -1321,7 +1321,7 @@ skills:
 
   - name: silver-platter
     version: "1.0.0"
-    status: cold
+    status: active  # 2026-08-30 HIL: Matthew re-affirmed the 08-02 KEEP
     domain: context-engineering
     health_score: null
 
@@ -1577,3 +1577,87 @@ skills:
     domain: strategic-analysis
     health_score: 0.0
 
+
+  - name: ai-audit
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: convert-documents-to-markdown
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: daily
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: hf-cli
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: human-review
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: mda
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: prompt-rewriter
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: provisioning
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: seedance-shot-prompt
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: site-style-audit
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: ain
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)
+
+  - name: knowledge-compiler
+    version: "1.0.0"
+    status: cold
+    domain: general
+    health_score: null
+    archived: 2026-08-30 (HIL batch, OS self-review; 0 invocations in 30d, no sponsor)

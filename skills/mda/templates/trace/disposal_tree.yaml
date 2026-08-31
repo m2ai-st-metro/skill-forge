@@ -1,0 +1,16 @@
+# Reference skeleton. `stamp.mjs` generates this populated: one node per disposal, flat,
+# with `also_depends_on` for links (per the real ls20 ARA instance, not nested children).
+# Node types: question (reveal pending) | experiment (agreement) | dead_end (deviation) |
+# decision | pivot. dead_end is the most valuable node type: it is a deviation.
+tree:
+
+  - id: N00
+    type: dead_end                 # a deviation: model prediction diverged from my blind verdict
+    title: "D00 — (item title)"
+    provenance: user
+    timestamp: "(verdict ts)"
+    hypothesis: "model prediction diverged from my blind up/down"
+    failure_mode: "(where and how it diverged)"
+    lesson: "candidate rule — promote to rules.md if the pattern repeats"
+    status: resolved
+    # also_depends_on: [N.. ]      # link to an earlier deviation that formed the governing rule
