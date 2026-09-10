@@ -106,21 +106,18 @@ WantedBy=default.target
 - [ ] Check journal: `journalctl --user -u <name> -f`
 - [ ] Ensure lingering enabled: `loginctl enable-linger apexaipc`
 
-## Agent Seat Setup (Paperclip)
+## Agent Seat Setup (Teletraan)
 
-DEAD as of 2026-05-29: the `~/projects/claudeclaw` repo this section described (worker
-personas, `src/db.ts` `WorkerType` union, `src/classifier.ts`/`src/scheduler.ts`
-keyword routing, `ecosystem.config.cjs` pm2 entries) was retired and replaced by
-CCOS/`claudeclaw-os`. Work dispatch is now Paperclip-native.
+The old `~/projects/claudeclaw` worker-persona scheduler is retired. Durable work state now
+lives in Teletraan, and supervised Codex or Claude execution runs through T3. Role names do
+not grant task, review, or publication authority.
 
 **To add a new agent seat:**
 
-1. Create the agent directory: `mkdir -p /home/apexaipc/.paperclip/instances/default/agents/<name>/`
-2. Create `AGENTS.md` with the seat's role, lane, and hard boundaries (see existing seats
-   for the pattern, e.g. `agents/kup/AGENTS.md`)
-3. Create `agent.yaml` alongside it with the seat's model/tool config
-4. Assign issues to the new seat via the Paperclip board (owner field), not a keyword
-   router or pm2 entry
+1. Add or update the native role contract under `~/.claude/agents/`.
+2. Admit one bounded Teletraan canary through the signed operator door.
+3. Require an active lease before execution and a separate reviewer before protected publication.
+4. Verify cancellation, usage, result, and review receipts before using the role for live work.
 
 ## Rollback Procedures
 

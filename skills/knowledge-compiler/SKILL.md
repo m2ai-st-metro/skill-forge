@@ -291,10 +291,10 @@ had drifted out of sync with the vault.
 The intended shape when it does get scheduled, matching the existing sentinel pattern
 (`chub-drift-cron`, `model-availability-cron`, `content-maintenance-cron`):
 
-- **clock**: cron. Paperclip has no scheduler; do not use `paperclip-wake` (it needs an
-  issue id, and the `ccos_gateway` credential path has been broken since 2026-08-20).
+- **clock**: cron. Scheduled discovery may write an inert proposal through Teletraan's
+  proposal socket; it cannot admit or dispatch work.
 - **owner**: Matthew
-- **sink**: `~/vault/compiled/` (always written) plus a Paperclip issue ONLY when
+- **sink**: `~/vault/compiled/` (always written) plus a Teletraan proposal only when
   `_gaps.md` or `_health.md` surfaces real findings. Silent when clean.
 - **kill**: report-only by Rule 1 below (compiled/ is the sole write target); hard timeout
   on the wrapper; remove the crontab line to stop.
