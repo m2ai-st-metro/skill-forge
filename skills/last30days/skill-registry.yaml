@@ -1,0 +1,35 @@
+name: last30days
+version: "1.0.0"
+status: cold
+created: "2026-10-13"
+last_reviewed: "2026-10-13"
+sync_hash: null
+
+source:
+  type: personal-skill-cold-archive
+  url: "https://github.com/mvanhorn/last30days-skill"
+  author: "mvanhorn"
+  date: "2026-09-01"
+
+taxonomy:
+  domain: uncategorized
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 1
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: "~/.claude/skills/last30days (installed via npx skills from mvanhorn/last30days-skill 2026-09-01; cold-archived 2026-10-13, 14-day gate: no callsite, 1 subagent invocation since install)"
+  changelog: []
+
+dependencies: []

@@ -3,12 +3,12 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-08-30"
-total_skills: 262
+generated_at: "2026-10-13"
+total_skills: 263
 by_status:
   active: 19
   draft: 187
-  cold: 56
+  cold: 57
 
 skills:
   - name: acceptance-constitution
@@ -909,6 +909,12 @@ skills:
     version: "1.0.0"
     status: cold
     domain: build-automation
+    health_score: null
+
+  - name: last30days
+    version: "1.0.0"
+    status: cold
+    domain: uncategorized
     health_score: null
 
   - name: launch-filter
