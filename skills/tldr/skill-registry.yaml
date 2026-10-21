@@ -1,0 +1,36 @@
+name: tldr
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-21"
+sync_hash: 8c7c8c0539ba37dc6765aa2cc992a544743b4bbd68c70e2b7dea15afb10fcac9
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: knowledge-capture
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-21): cold-archived (Matthew's decision 2026-10-21). Redundant with /next handoffs (~/handoffs/<project>/) and auto-memory; Matthew no longer uses it. The CLAUDE.md memory-gate override clause that named it was removed the same day. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

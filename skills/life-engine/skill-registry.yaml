@@ -1,0 +1,36 @@
+name: life-engine
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-21"
+sync_hash: b308efb731efb838f3dbcff1e9504b7992f143c1469bf603833217ffeeada8e7
+
+source:
+  type: internal-tool
+  url: null
+  author: "ClaudeClaw / Data"
+  date: null
+
+taxonomy:
+  domain: personal-ops
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-21): cold-archived (Matthew's decision 2026-10-21). Personal email, client reference and LAN morning-review URL redacted before public push; unredacted original is in the private claude-config history (cf8fc63). Not scheduled anywhere (no cron, no CCOS scheduled_task, no desktop scheduled task); Matthew had not looked at its briefings in weeks. Its feeder crons (ccos-upstream-drift, unclassified-error) keep their Telegram sinks; link-renewals-check.py lost its only caller. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []
