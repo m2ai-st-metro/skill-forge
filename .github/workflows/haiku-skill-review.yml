@@ -1,9 +1,26 @@
 name: Haiku skill review
 
-# Auto-reviews and merges the automated forge/* skill PRs so they don't pile up
-# waiting on a manual merge. Claude Haiku checks structure + secrets; if it
-# approves and nothing is flagged, the PR is squash-merged. Anything it can't
-# clear is labelled `needs-human` and left open.
+# Auto-reviews the automated forge/* skill PRs so they don't pile up waiting on a
+# manual merge. Claude Haiku checks structure + secrets; the PR only auto-merges
+# when the Haiku review AND all three deterministic gates below pass. Anything
+# short of that is labelled `needs-human` and left open for a real merge.
+#
+# Gates added under MAI-263 (2026-08-31 HIL decision, options doc had proposed
+# removing auto-merge entirely; Matthew chose to gate it instead):
+#   1. Ledger gate      — data/forge-cycle-ledger.json cleanCycles must be >= the
+#                          graduation bar (7, same constant as scripts/open-intake-pr.mjs).
+#                          The ledger is currently gitignored/untracked, so on a fresh
+#                          checkout this defaults to cleanCycles=0 (not graduated),
+#                          matching open-intake-pr.mjs's own loadLedger() fallback.
+#   2. Allowlist gate   — every changed path must fall inside the same canonical
+#                          allowlist scripts/open-intake-pr.mjs already enforces at
+#                          PR-open time (skills/**, registry.yaml, data/intake/*.processed.md,
+#                          data/last_check.txt). Anything else, including .github/**
+#                          workflow/CI files, fails closed.
+#   3. Gitleaks gate    — scans the PR's introduced commits (not the whole tree) with
+#                          the same pinned gitleaks version (v8.30.1) used by this repo's
+#                          other secret-scanning layers, independent of Haiku's own
+#                          regex/model secret checks.
 
 on:
   pull_request:
@@ -49,15 +66,99 @@ jobs:
           PR: ${{ github.event.pull_request.number }}
         run: gh pr comment "$PR" --body-file review_body.md
 
-      - name: Auto-merge (approved)
-        if: steps.review.outputs.decision == 'approve'
+      - name: "Gate 1/3: ledger (graduation check)"
+        id: ledger
+        run: |
+          BAR=7
+          CLEAN=$(python3 -c "
+          import json
+          try:
+              with open('data/forge-cycle-ledger.json') as f:
+                  print(json.load(f).get('cleanCycles', 0))
+          except FileNotFoundError:
+              print(0)
+          ")
+          echo "Ledger gate: cleanCycles=$CLEAN, graduation bar=$BAR"
+          if [ "$CLEAN" -ge "$BAR" ]; then
+            echo "Ledger gate: PASS (graduated)"
+            echo "pass=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Ledger gate: FAIL (not graduated, cleanCycles=$CLEAN < $BAR)"
+            echo "pass=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: "Gate 2/3: path allowlist"
+        id: allowlist
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          CHANGED=$(git diff --name-only "origin/$BASE_REF...HEAD")
+          echo "Changed files:"
+          echo "$CHANGED"
+          BAD=""
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            case "$f" in
+              skills/*) ;;
+              registry.yaml) ;;
+              data/intake/*.processed.md) ;;
+              data/last_check.txt) ;;
+              *) BAD="${BAD}${f}"$'\n' ;;
+            esac
+          done <<< "$CHANGED"
+          if [ -n "$BAD" ]; then
+            echo "Path allowlist gate: FAIL — paths outside the intake allowlist:"
+            echo "$BAD"
+            echo "pass=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Path allowlist gate: PASS — all changed paths within skills/**, registry.yaml, data/intake/*.processed.md, data/last_check.txt"
+            echo "pass=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install gitleaks
+        run: |
+          curl -sSfL -o /tmp/gitleaks.tar.gz \
+            https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          sudo install -m 0755 /tmp/gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: "Gate 3/3: gitleaks (PR commit range)"
+        id: gitleaks
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          if gitleaks git --log-opts="origin/${BASE_REF}..HEAD" --redact --no-banner --verbose --exit-code 1 .; then
+            echo "Gitleaks gate: PASS — no secrets detected in this PR's commits"
+            echo "pass=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Gitleaks gate: FAIL — potential secret(s) detected, see scan output above"
+            echo "pass=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Gate summary
+        run: |
+          echo "haiku=${{ steps.review.outputs.decision }} ledger=${{ steps.ledger.outputs.pass }} allowlist=${{ steps.allowlist.outputs.pass }} gitleaks=${{ steps.gitleaks.outputs.pass }}"
+
+      - name: Auto-merge (approved + all gates pass)
+        if: |
+          steps.review.outputs.decision == 'approve' &&
+          steps.ledger.outputs.pass == 'true' &&
+          steps.allowlist.outputs.pass == 'true' &&
+          steps.gitleaks.outputs.pass == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}
         run: gh pr merge "$PR" --squash --delete-branch
 
-      - name: Flag for human (changes requested)
-        if: steps.review.outputs.decision != 'approve'
+      - name: Flag for human (review or a gate failed)
+        if: |
+          steps.review.outputs.decision != 'approve' ||
+          steps.ledger.outputs.pass != 'true' ||
+          steps.allowlist.outputs.pass != 'true' ||
+          steps.gitleaks.outputs.pass != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}
