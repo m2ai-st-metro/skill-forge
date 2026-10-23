@@ -1,0 +1,24 @@
+name: vault-push
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-23"
+sync_hash: null
+
+source:
+  type: internal
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: knowledge-management
+  complexity: beginner
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+notes: "Cold-archived 2026-10-23: pushed vault notes to Perceptor, whose MCP was disabled that day (RAM trim). Revive only if Perceptor MCP is re-enabled."
