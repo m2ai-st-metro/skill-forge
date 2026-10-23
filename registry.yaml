@@ -3,12 +3,12 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-10-21"
-total_skills: 265
+generated_at: "2026-10-23"
+total_skills: 277
 by_status:
-  active: 19
+  active: 17
   draft: 187
-  cold: 59
+  cold: 73
 
 skills:
   - name: acceptance-constitution
@@ -323,6 +323,12 @@ skills:
     domain: agent-architecture
     health_score: null
 
+  - name: author
+    version: "1.0.0"
+    status: cold
+    domain: writing
+    health_score: null
+
   - name: automation-platform-decision-guide
     version: "1.0.0"
     status: draft
@@ -335,10 +341,22 @@ skills:
     domain: security
     health_score: null
 
+  - name: benchmark
+    version: "1.0.0"
+    status: cold
+    domain: model-usage
+    health_score: null
+
   - name: bitter-lesson-scorecard
     version: "1.0.0"
     status: cold
     domain: uncategorized
+    health_score: null
+
+  - name: book-to-lens
+    version: "1.0.0"
+    status: cold
+    domain: writing
     health_score: null
 
   - name: boot-tax-monitor
@@ -393,6 +411,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: career-development
+    health_score: null
+
+  - name: chapter-loop
+    version: "1.0.0"
+    status: cold
+    domain: writing
     health_score: null
 
   - name: check-appeals-gate
@@ -451,7 +475,7 @@ skills:
 
   - name: code-review-memory
     version: "1.0.0"
-    status: active
+    status: cold
     domain: code-review
     health_score: null
 
@@ -541,7 +565,7 @@ skills:
 
   - name: counterargument-stress-test
     version: "1.0.0"
-    status: active
+    status: cold
     domain: strategic-analysis
     health_score: 50.0
 
@@ -749,6 +773,12 @@ skills:
     domain: automation-design
     health_score: null
 
+  - name: first-reader
+    version: "1.0.0"
+    status: cold
+    domain: writing
+    health_score: null
+
   - name: five-questions-loop-audit
     version: "1.0.0"
     status: draft
@@ -921,6 +951,12 @@ skills:
     version: "1.0.0"
     status: active
     domain: agent-evaluation
+    health_score: null
+
+  - name: lens-algorithms-to-live-by
+    version: "1.0.0"
+    status: cold
+    domain: writing
     health_score: null
 
   - name: license-audit
@@ -1097,6 +1133,12 @@ skills:
     domain: observability
     health_score: null
 
+  - name: n8n-ads
+    version: "1.0.0"
+    status: cold
+    domain: marketing
+    health_score: null
+
   - name: native-video-intake
     version: "1.0.0"
     status: draft
@@ -1209,6 +1251,12 @@ skills:
     version: "1.0.0"
     status: cold
     domain: strategic-analysis
+    health_score: null
+
+  - name: prompt-goodies
+    version: "1.0.0"
+    status: cold
+    domain: prompting
     health_score: null
 
   - name: proposals-pattern
@@ -1427,6 +1475,12 @@ skills:
     domain: memory-systems
     health_score: null
 
+  - name: tie-breaker
+    version: "1.0.0"
+    status: cold
+    domain: decision-making
+    health_score: null
+
   - name: tier-classifier
     version: "1.0.0"
     status: cold
@@ -1505,6 +1559,12 @@ skills:
     domain: data-migration
     health_score: null
 
+  - name: vault-push
+    version: "1.0.0"
+    status: cold
+    domain: knowledge-management
+    health_score: null
+
   - name: vault-setup
     version: "1.0.0"
     status: cold
@@ -1545,6 +1605,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: quality-assurance
+    health_score: null
+
+  - name: vuln-triage
+    version: "1.0.0"
+    status: cold
+    domain: security
     health_score: null
 
   - name: weekly-signal-diff
@@ -1600,4 +1666,10 @@ skills:
     status: active
     domain: strategic-analysis
     health_score: 0.0
+
+  - name: youtube
+    version: "1.0.0"
+    status: cold
+    domain: content-youtube
+    health_score: null
 

@@ -1,35 +1,30 @@
 name: code-review-memory
-version: "1.0.0"
-status: active
-created: "2026-05-08"
-last_reviewed: null
-sync_hash: null
-
+version: 1.0.0
+status: cold
+created: '2026-05-08'
+last_reviewed: '2026-10-23'
+sync_hash: f0885cec80acf3388433c0eda75c51eeb241db33b47254c405d4443eb9ab0d3e
 source:
   type: newsletter
-  url: "https://natesnewsletter.substack.com/p/openclaw-agent-runtime-model-swapping"
-  author: "Nate Kadlac"
-  date: "2026-05-07"
-
+  url: https://natesnewsletter.substack.com/p/openclaw-agent-runtime-model-swapping
+  author: Nate Kadlac
+  date: '2026-05-07'
 taxonomy:
   domain: code-review
   complexity: weekend
-
 metrics:
   invocations_30d: 0
   last_invoked: null
   manual_rating: null
   health_score: null
-
 learning:
   total_patches_applied: 0
   total_patches_proposed: 0
   last_patch_at: null
   effectiveness_score: null
-
 lineage:
   parent_version: null
   derived_from: null
-  changelog: []
-
+  changelog:
+  - '2026-10-23: cold-archived per the 14-day gate (skill audit 2026-10-23). No observed use 2026-07-25 to 2026-10-23. The 2026-06-27 ''Ravage-sponsored'' active status has no live callsite: no agent manifest, rule, hook or CLAUDE.md names this skill. Hot copy (2026-09-01, description reformatted) replaces the 2026-05-26 forge copy. Removed from ~/.claude/skills. Never delete this copy.'
 dependencies: []

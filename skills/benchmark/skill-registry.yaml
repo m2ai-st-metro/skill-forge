@@ -1,0 +1,36 @@
+name: benchmark
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-23"
+sync_hash: 07130a01182ff5d2617b02fb2bc73188d1da975e5768b9e43758d5da42209948
+
+source:
+  type: vendored
+  url: https://github.com/earlyaidopters/personal-benchmark
+  author: "earlyaidopters"
+  date: null
+
+taxonomy:
+  domain: model-usage
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-23): cold-archived per the 14-day gate (skill audit 2026-10-23). 1 use (2026-08-03), no sponsor; model-analysis owns model benchmarking. Vendored clone of github.com/earlyaidopters/personal-benchmark at 13ac1c9 (no LICENSE file upstream); .git and __pycache__ not copied. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

@@ -1,0 +1,36 @@
+name: author
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-23"
+sync_hash: c5a40bd1175fa6dd241d11da389d56e7f37b731d8b7bd3a650ae5897be0600d1
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: writing
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-23): cold-archived per the 14-day gate (skill audit 2026-10-23). Book-writing cluster; no observed use 2026-07-25 to 2026-10-23 and no sponsor (no callsite, no live agent manifest). Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

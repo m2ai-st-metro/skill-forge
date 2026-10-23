@@ -1,35 +1,30 @@
 name: silver-platter
-version: "1.0.0"
+version: 1.0.0
 status: cold
-created: "2026-05-10"
-last_reviewed: null
-sync_hash: null
-
+created: '2026-05-10'
+last_reviewed: '2026-10-23'
+sync_hash: e9985254ae3908c2024c9682bc827dcfd172d7048b82c7c602f285c26252b602
 source:
   type: youtube
-  url: "https://www.youtube.com/watch?v=-WCNwxz3uoM"
-  author: "Mark Kashef"
-  date: "2026-05-09"
-
+  url: https://www.youtube.com/watch?v=-WCNwxz3uoM
+  author: Mark Kashef
+  date: '2026-05-09'
 taxonomy:
   domain: context-engineering
   complexity: weekend
-
 metrics:
   invocations_30d: 0
   last_invoked: null
   manual_rating: null
   health_score: null
-
 learning:
   total_patches_applied: 0
   total_patches_proposed: 0
   last_patch_at: null
   effectiveness_score: null
-
 lineage:
   parent_version: null
   derived_from: null
-  changelog: []
-
+  changelog:
+  - '2026-10-23: cold-archived per the 14-day gate (skill audit 2026-10-23). Already cold here; the hot copy (2026-07-19, the Business OS Demos Kit interview version with examples/, references/, scripts/) replaces the older 2026-07-06 context-blueprint copy, which stays in git history. No observed use, no sponsor. Removed from ~/.claude/skills. Never delete this copy.'
 dependencies: []

@@ -1,0 +1,36 @@
+name: tie-breaker
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-23"
+sync_hash: 2a2bf866220e9d600b11536b35f6c49edc5e0c4cd8dfa89443534e15a3c1ca9c
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: decision-making
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-23): cold-archived per the 14-day gate (skill audit 2026-10-23). No observed use 2026-07-25 to 2026-10-23, no sponsor. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

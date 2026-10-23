@@ -1,0 +1,36 @@
+name: chapter-loop
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-23"
+sync_hash: 838bd100461f33a383b093bfbd90596cb01b92d59a0452f7527692c66775220e
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: writing
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-23): cold-archived per the 14-day gate (skill audit 2026-10-23). Book-writing cluster; no observed use 2026-07-25 to 2026-10-23, no sponsor. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []
