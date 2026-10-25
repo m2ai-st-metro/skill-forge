@@ -1,0 +1,36 @@
+name: braindump
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-25"
+sync_hash: 8b5314d2364815de5d3b4492c6ec2006613d62b6ea9e3d16b578f86376eb0ad1
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: knowledge-capture
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-25): merged and cold-archived (skill audit 2026-10-23, merge done 2026-10-25). Merged into /quick, which now splits a multi-line capture into one inert Teletraan proposal per item. Not carried over: writing unmarked ideas as ideas/ markdown notes, and running goal-maker on goal:/task: lines before proposing. Callsites repointed: ~/CLAUDE.md, goal-maker SKILL.md. No observed use 2026-07-25 to 2026-10-23. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

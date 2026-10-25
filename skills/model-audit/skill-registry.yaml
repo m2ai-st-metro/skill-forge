@@ -1,0 +1,36 @@
+name: model-audit
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-25"
+sync_hash: fd7429ee440327a77d0f5876b7522fcb75a9c0996c146a12ac3960bb60b72bc0
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: model-usage
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-25): merged and cold-archived (skill audit 2026-10-23, merge done 2026-10-25). Merged into /model-analysis as 'scan' mode; the full procedure lives at ~/.claude/skills/model-analysis/references/codebase-scan.md. Because model-analysis runs in a forked context, the guided interview, stale-registry prompt and vault-save prompt became flag-driven defaults (full audit; --check-docs; --save). Callsite repointed: ~/.claude/workflows/model-audit-fanout.js. No observed use 2026-07-25 to 2026-10-23. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

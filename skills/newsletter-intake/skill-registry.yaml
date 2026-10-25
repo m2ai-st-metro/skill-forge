@@ -1,0 +1,36 @@
+name: newsletter-intake
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-25"
+sync_hash: 632960f50fcddb3e24b928d5592af4518caadc033160e44d0285c4279dfc7836
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: content-intake
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-25): merged and cold-archived (skill audit 2026-10-23, merge done 2026-10-25). Merged into forge-content-scan as Stage 2 (newsletter extraction), with its smoke test appended to forge-content-scan/SMOKE_test.md. Its only sponsor was forge-content-scan's handoff. No observed use 2026-07-25 to 2026-10-23. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

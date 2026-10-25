@@ -3,12 +3,12 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-10-23"
-total_skills: 277
+generated_at: "2026-10-25"
+total_skills: 280
 by_status:
   active: 17
   draft: 187
-  cold: 73
+  cold: 76
 
 skills:
   - name: acceptance-constitution
@@ -363,6 +363,12 @@ skills:
     version: "1.0.0"
     status: cold
     domain: developer-productivity
+    health_score: null
+
+  - name: braindump
+    version: "1.0.0"
+    status: cold
+    domain: knowledge-capture
     health_score: null
 
   - name: brand-memory-probe
@@ -1091,6 +1097,12 @@ skills:
     domain: knowledge-work
     health_score: null
 
+  - name: model-audit
+    version: "1.0.0"
+    status: cold
+    domain: model-usage
+    health_score: null
+
   - name: model-migration-preflight
     version: "1.0.0"
     status: draft
@@ -1161,6 +1173,12 @@ skills:
     version: "1.0.0"
     status: cold
     domain: automation
+    health_score: null
+
+  - name: newsletter-intake
+    version: "1.0.0"
+    status: cold
+    domain: content-intake
     health_score: null
 
   - name: open-brain-mcp-spec
