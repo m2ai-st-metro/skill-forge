@@ -4,11 +4,11 @@
 # Regenerate: python src/build_registry.py
 
 generated_at: "2026-10-25"
-total_skills: 280
+total_skills: 281
 by_status:
   active: 17
   draft: 187
-  cold: 76
+  cold: 77
 
 skills:
   - name: acceptance-constitution
@@ -789,6 +789,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: automation-design
+    health_score: null
+
+  - name: forge-content-scan
+    version: "1.0.0"
+    status: cold
+    domain: content-intake
     health_score: null
 
   - name: forward-deployed-playbook

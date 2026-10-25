@@ -1,0 +1,36 @@
+name: forge-content-scan
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-25"
+sync_hash: 38b74e8a0a09641594e34f8d52368110aff44b5353f1c7a24282824ba6d0c0b1
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: content-intake
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-25): cold-archived 2026-10-25 as unsponsored. Its claimed sponsor, the Forge intake cron, no longer exists: no crontab line, no CCOS scheduled_tasks row, no systemd unit; data/state/mark-kashef.last last written 2026-09-08. A full callsite grep (CLAUDE.md files, rules, hooks, settings, tasks, crons, workflows, skills, agent.yaml, scripts) found no other reference. Smoke test 2026-10-25: Stage 2 halt path ([NO_ACTION]) passed; extraction never ran because Gmail holds no mail from natesnewsletter@substack.com (last intake nate-2026-07-08). Its docs point at data/sources.yaml, which does not exist. Carries newsletter-intake as Stage 2 (merged 2026-10-25). Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []
