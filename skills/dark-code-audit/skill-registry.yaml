@@ -1,0 +1,36 @@
+name: dark-code-audit
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-26"
+sync_hash: a4b31cf9c5383d4e22e2950e1554ba17deab403d39b77da410adc142e4313cf2
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: code-audit
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-26): cold-archived in the second-pass skill cleanup (does it fight a frontier model or duplicate a native feature?). Codebase darkness scoring with its fan-out workflow (workflows/dark-code-audit-fanout.js, archived alongside from ~/.claude/workflows). No observed use; the workflow had no other caller. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

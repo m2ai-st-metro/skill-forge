@@ -3,14 +3,20 @@
 # Consumers: Forge review pass, Sky-Lynx analysis, AutoResearch catalog awareness
 # Regenerate: python src/build_registry.py
 
-generated_at: "2026-10-25"
-total_skills: 281
+generated_at: "2026-10-26"
+total_skills: 293
 by_status:
   active: 17
   draft: 187
-  cold: 77
+  cold: 89
 
 skills:
+  - name: aar
+    version: "1.0.0"
+    status: cold
+    domain: retrospective
+    health_score: null
+
   - name: acceptance-constitution
     version: "1.0.0"
     status: draft
@@ -359,6 +365,12 @@ skills:
     domain: writing
     health_score: null
 
+  - name: book-to-skill
+    version: "1.0.0"
+    status: cold
+    domain: content-creation
+    health_score: null
+
   - name: boot-tax-monitor
     version: "1.0.0"
     status: cold
@@ -611,6 +623,12 @@ skills:
     domain: skill-management
     health_score: null
 
+  - name: dark-code-audit
+    version: "1.0.0"
+    status: cold
+    domain: code-audit
+    health_score: null
+
   - name: data-fabric-fit-assessor
     version: "1.0.0"
     status: draft
@@ -663,6 +681,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: agent-safety
+    health_score: null
+
+  - name: diagnose
+    version: "1.0.0"
+    status: cold
+    domain: debugging
     health_score: null
 
   - name: dispatch-handoff-brief
@@ -819,6 +843,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: strategic-analysis
+    health_score: null
+
+  - name: gemini-rescue
+    version: "1.0.0"
+    status: cold
+    domain: code-review
     health_score: null
 
   - name: geopolitical-signal-enricher
@@ -1029,6 +1059,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: strategic-analysis
+    health_score: null
+
+  - name: marks-plan
+    version: "1.0.0"
+    status: cold
+    domain: planning
     health_score: null
 
   - name: mcp-blast-radius-tagger
@@ -1259,6 +1295,12 @@ skills:
     domain: cost-management
     health_score: null
 
+  - name: preflight-check
+    version: "1.0.0"
+    status: cold
+    domain: devops
+    health_score: null
+
   - name: pretty-but-wrong
     version: "1.0.0"
     status: draft
@@ -1301,6 +1343,12 @@ skills:
     domain: agent-infrastructure
     health_score: null
 
+  - name: publish-skill
+    version: "1.0.0"
+    status: cold
+    domain: skill-management
+    health_score: null
+
   - name: reasoning-extractor
     version: "1.0.0"
     status: cold
@@ -1324,6 +1372,12 @@ skills:
     status: active
     domain: deployment
     health_score: 17.3
+
+  - name: remotion-to-hyperframes
+    version: "1.0.0"
+    status: cold
+    domain: video-production
+    health_score: null
 
   - name: renewal-interrogation
     version: "1.0.0"
@@ -1559,6 +1613,12 @@ skills:
     domain: career-development
     health_score: null
 
+  - name: trust-ladder
+    version: "1.0.0"
+    status: cold
+    domain: automation-safety
+    health_score: null
+
   - name: trust-score
     version: "1.0.0"
     status: draft
@@ -1611,6 +1671,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: quality-assurance
+    health_score: null
+
+  - name: verify-status
+    version: "1.0.0"
+    status: cold
+    domain: planning
     health_score: null
 
   - name: video-to-skill
@@ -1671,6 +1737,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: workflow-design
+    health_score: null
+
+  - name: workflow-router
+    version: "1.0.0"
+    status: cold
+    domain: orchestration
     health_score: null
 
   - name: workflow-tier-classifier

@@ -1,0 +1,36 @@
+name: diagnose
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-26"
+sync_hash: 7288b8ff8fa345bd2c3a3e54b63528a250f483a6d906141d1ec7f944e5a904d2
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: debugging
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-26): cold-archived in the second-pass skill cleanup (does it fight a frontier model or duplicate a native feature?). Rigid 5-gate debugging protocol with a hard stop before any edit. Fights a frontier model's native debugging and was a measured stop-point source (2026-10 stop-points census). Last observed use 2026-04-29. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

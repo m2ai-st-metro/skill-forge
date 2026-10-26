@@ -1,0 +1,36 @@
+name: verify-status
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-26"
+sync_hash: 3dc172b0babcc59ef15a57793fe95737a0d952880c893aa3b7a305c97cb53a64
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: planning
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-26): cold-archived in the second-pass skill cleanup (does it fight a frontier model or duplicate a native feature?). Merged into /prime as Mode D (ground-truth table: every number from a command run this session). prime's verification step now points at Mode D. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

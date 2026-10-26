@@ -1,0 +1,36 @@
+name: remotion-to-hyperframes
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-26"
+sync_hash: b0ca685894ce06dfa650d9a8899aff3611d0228b5ae6c13ec9f81ed55ead201c
+
+source:
+  type: vendored
+  url: "https://github.com/heygen-com/hyperframes"
+  author: "HeyGen (heygen-com/hyperframes)"
+  date: null
+
+taxonomy:
+  domain: video-production
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-26): cold-archived in the second-pass skill cleanup (does it fight a frontier model or duplicate a native feature?). On-demand HyperFrames pack skill, no observed use. Reinstall from upstream with: npx hyperframes skills update remotion-to-hyperframes. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

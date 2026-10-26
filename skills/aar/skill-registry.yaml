@@ -1,0 +1,36 @@
+name: aar
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-26"
+sync_hash: 99a28db21fd40d46fae8f700969cdda8af96a2026925fbc3d11403a2a64e9937
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: retrospective
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-26): cold-archived in the second-pass skill cleanup (does it fight a frontier model or duplicate a native feature?). Structured after-action review template. A plain request produces an equivalent review; last observed use 2026-08-29. Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []

@@ -1,0 +1,36 @@
+name: preflight-check
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-26"
+sync_hash: 7d38dcdca5fd4215763a54728f08746b2d911cbcd1c4cd280e01309ff4116666
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: devops
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 0
+  last_invoked: null
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-26): cold-archived in the second-pass skill cleanup (does it fight a frontier model or duplicate a native feature?). Merged into /prime Mode D ('/prime preflight'). Carried over: stale-lock liveness classification, non-empty WAL check, Unity .meta/GUID drift, ~/.env.shared key check, target-path and target-test checks. Dropped: all-repo scan, /tmp/PREFLIGHT_REPORT.md (no consumer), process grep. Callsites repointed: goal-condition-lint.py TEMPLATE and goal-maker unattended-batch-template.md (/preflight -> /prime preflight). Removed from ~/.claude/skills. Never delete this copy."
+
+dependencies: []
