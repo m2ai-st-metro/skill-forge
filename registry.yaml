@@ -4,11 +4,11 @@
 # Regenerate: python src/build_registry.py
 
 generated_at: "2026-10-26"
-total_skills: 293
+total_skills: 294
 by_status:
   active: 17
   draft: 187
-  cold: 89
+  cold: 90
 
 skills:
   - name: aar
@@ -1707,6 +1707,12 @@ skills:
     version: "1.0.0"
     status: draft
     domain: market-intelligence
+    health_score: null
+
+  - name: what-am-i-forgetting
+    version: "1.0.0"
+    status: cold
+    domain: agenda-recall
     health_score: null
 
   - name: workbook-doctor

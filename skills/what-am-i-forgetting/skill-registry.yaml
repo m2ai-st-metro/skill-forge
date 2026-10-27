@@ -1,0 +1,36 @@
+name: what-am-i-forgetting
+version: "1.0.0"
+status: cold
+created: null
+last_reviewed: "2026-10-27"
+sync_hash: d5aebea885b1b34888ebf2049bd1e40a148aa0bffe886e0bb7b2908e7f8ace3b
+
+source:
+  type: internal-tool
+  url: null
+  author: "Matthew Snow"
+  date: null
+
+taxonomy:
+  domain: agenda-recall
+  complexity: intermediate
+
+metrics:
+  invocations_30d: 1
+  last_invoked: "2026-10-27"
+  manual_rating: null
+  health_score: null
+
+learning:
+  total_patches_applied: 0
+  total_patches_proposed: 0
+  last_patch_at: null
+  effectiveness_score: null
+
+lineage:
+  parent_version: null
+  derived_from: null
+  changelog:
+    - "1.0.0 (2026-10-27): retired by Matthew. Its sources went stale (handoffs never closed, MEMORY.md Active Projects lists retired work, ST Metro roadmaps and client folders untouched since summer), so runs surfaced finished work as open. Teletraan ttn work is the work-state source of truth. Removed from ~/.claude/skills and Data's allowlist. Never delete this copy."
+
+dependencies: []
