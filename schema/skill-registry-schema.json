@@ -21,6 +21,11 @@
       "description": "Lifecycle state of the skill",
       "enum": ["draft", "active", "under_review", "refined", "deprecated"]
     },
+    "classification": {
+      "type": "string",
+      "description": "Intake tool-vs-technique gate (MAI-206). Only `technique` may become a skill; scripts/open-intake-pr.mjs refuses to open a PR for anything else. Sidecars older than the gate omit it.",
+      "enum": ["technique", "tool", "other"]
+    },
     "created": {
       "type": "string",
       "description": "ISO date when the skill was first committed",

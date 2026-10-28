@@ -30,8 +30,11 @@ def write(directory: Path, name: str, ideas: str = "") -> Path:
     return path
 
 
-def idea(title: str, routing: str | None = None) -> str:
+def idea(title: str, routing: str | None = None,
+         classification: str | None = "technique") -> str:
     body = f"### {title}\n\nA description of the idea.\n\n- **[a] Effort:** S\n"
+    if classification is not None:
+        body += f"\n**Classification:** {classification}\n"
     if routing is not None:
         body += f"\n**Routing:** {routing}\n"
     return body + "\n---\n\n"
@@ -53,7 +56,7 @@ class TestParseIdeas:
         assert [i.title for i in marker.parse_ideas(path.read_text())] == ["One"]
 
     def test_legacy_status_built_line_counts_as_a_built_verdict(self, tmp_path):
-        body = "### One\n\nText.\n\n**Status:** Built — `skills/one/`\n"
+        body = "### One\n\nText.\n\n**Classification:** technique\n\n**Status:** Built — `skills/one/`\n"
         path = write(tmp_path, "a.md", body)
         parsed = marker.parse_ideas(path.read_text())
         assert parsed[0].verdict == "BUILT"
@@ -88,6 +91,57 @@ class TestVerdictValidation:
         path = write(tmp_path, "a.md",
                      idea("Done", "BUILT — `skills/done/`") + idea("Open") + idea("Also open"))
         assert [t for t, _ in marker.unrouted(path)] == ["Open", "Also open"]
+
+
+class TestClassification:
+    """Tool-vs-technique gate (MAI-206). PR #112 (subscription-sdk-bridge) was a TOOL
+    force-fit into a SKILL.md because nothing asked the question. Every idea now
+    carries a grep-able `**Classification:**` line and only a technique may be BUILT."""
+
+    def test_missing_classification_is_a_blocker(self, tmp_path):
+        path = write(tmp_path, "a.md", idea("One", "BUILT — `skills/one/`", classification=None))
+        assert "no **Classification:** line" in marker.unrouted(path)[0][1]
+
+    def test_unknown_classification_is_a_blocker(self, tmp_path):
+        path = write(tmp_path, "a.md", idea("One", "NO-GO — not for us, reason", classification="gadget"))
+        assert "not one of technique, tool, other" in marker.unrouted(path)[0][1]
+
+    def test_classification_is_parsed_case_insensitively(self, tmp_path):
+        path = write(tmp_path, "a.md", idea("One", "BUILT — `skills/one/`", classification="Technique"))
+        assert marker.parse_ideas(path.read_text())[0].classification == "technique"
+        assert marker.unrouted(path) == []
+
+    @pytest.mark.parametrize("classification", ["tool", "other"])
+    def test_a_non_technique_routed_built_is_a_blocker(self, tmp_path, classification):
+        path = write(tmp_path, "a.md", idea("One", "BUILT — `skills/one/`", classification=classification))
+        problems = marker.unrouted(path)
+        assert len(problems) == 1
+        assert f"{classification}-classified idea routed BUILT" in problems[0][1]
+
+    @pytest.mark.parametrize("routing", [
+        "CARD — MAI-207",
+        "NO-GO — already have an equivalent in the stack",
+    ])
+    def test_a_tool_exits_as_card_or_nogo(self, tmp_path, routing):
+        path = write(tmp_path, "a.md", idea("One", routing, classification="tool"))
+        assert marker.unrouted(path) == []
+
+    def test_a_tool_card_still_needs_an_issue_id(self, tmp_path):
+        path = write(tmp_path, "a.md", idea("One", "CARD — will file later", classification="tool"))
+        assert "CARD without a card id" in marker.unrouted(path)[0][1]
+
+    def test_marking_refuses_a_tool_built_as_a_skill(self, tmp_path):
+        path = write(tmp_path, "src-2026-01-01.md", idea("One", "BUILT — `skills/one/`", classification="tool"))
+        with pytest.raises(ValueError, match="routed BUILT"):
+            marker.mark(path)
+        assert path.exists()
+
+    def test_classification_is_grepable(self, tmp_path):
+        """The whole point of recording it in the file: a later audit can grep it."""
+        path = write(tmp_path, "a.md", idea("One", "CARD — MAI-207", classification="tool"))
+        assert "**Classification:** tool" in path.read_text()
+
+
 
 
 class TestMark:

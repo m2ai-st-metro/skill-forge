@@ -17,6 +17,12 @@ This script is the missing owner. It enforces two rules:
    artifact exists), CARD (a tracked follow-up was spawned), or NO-GO (an
    explicit decision not to act, with a reason). Marking first would hide the
    open ideas, which is exactly how these four drifted.
+3. Every idea carries a `**Classification:**` line: technique | tool | other
+   (MAI-206). Only a TECHNIQUE may be BUILT into a skill. A TOOL (a thing to
+   install or call, PR #112 subscription-sdk-bridge was one force-fit into a
+   SKILL.md) or OTHER exits as CARD (a Paperclip evaluation issue, filed via
+   `node scripts/open-intake-pr.mjs --tool-issue ...`) or NO-GO. The line is
+   grep-able: `grep -rn "Classification:.. tool" data/intake/`.
 
 `data/` is gitignored, so this operates on runtime state; only the script and
 its tests are tracked.
@@ -52,18 +58,31 @@ LEGACY_BUILT = re.compile(r"^\*\*Status:\*\*\s*Built\b[\s—:-]*(.*)$", re.MULTI
 CARD_ID = re.compile(r"(MAI-\d+|Q-\d{8}-\d{4}|#\d+)")
 MIN_REASON_CHARS = 12
 
+# `**Classification:** technique` (tool-vs-technique gate, MAI-206). Same line shape as Routing.
+CLASSIFICATION = re.compile(r"^\*\*Classification:\*\*\s*([A-Za-z-]+)\b", re.MULTILINE)
+CLASSIFICATIONS = ("technique", "tool", "other")
+
 
 @dataclass(frozen=True)
 class Idea:
     title: str
     verdict: str | None
     detail: str
+    classification: str | None = None
 
     @property
     def problem(self) -> str | None:
         """Why this idea does not yet have a valid exit, or None if it does."""
+        if self.classification is None:
+            return "no **Classification:** line (expected technique, tool, or other)"
+        if self.classification not in CLASSIFICATIONS:
+            return (f"classification {self.classification!r} is not one of "
+                    f"{', '.join(CLASSIFICATIONS)}")
         if self.verdict is None:
             return "no **Routing:** line (expected BUILT, CARD, or NO-GO)"
+        if self.classification != "technique" and self.verdict == "BUILT":
+            return (f"{self.classification}-classified idea routed BUILT; only techniques become "
+                    "skills, a tool/other exits as CARD (Paperclip evaluation issue) or NO-GO")
         if self.verdict == "CARD" and not CARD_ID.search(self.detail):
             return "CARD without a card id (expected MAI-<n>, Q-<date>-<n>, or #<n>)"
         if self.verdict in ("NO-GO", "BUILT") and len(self.detail.strip()) < MIN_REASON_CHARS:
@@ -108,16 +127,18 @@ def parse_ideas(text: str) -> list[Idea]:
     for i, match in enumerate(matches):
         end = matches[i + 1].start() if i + 1 < len(matches) else len(body)
         chunk = body[match.end():end]
+        classified = CLASSIFICATION.search(chunk)
+        classification = classified.group(1).lower() if classified else None
 
         routed = ROUTING.search(chunk)
         if routed is not None:
-            ideas.append(Idea(match.group(1), routed.group(1), routed.group(2)))
+            ideas.append(Idea(match.group(1), routed.group(1), routed.group(2), classification))
             continue
         legacy = LEGACY_BUILT.search(chunk)
         if legacy is not None:
-            ideas.append(Idea(match.group(1), "BUILT", legacy.group(1)))
+            ideas.append(Idea(match.group(1), "BUILT", legacy.group(1), classification))
             continue
-        ideas.append(Idea(match.group(1), None, ""))
+        ideas.append(Idea(match.group(1), None, "", classification))
     return ideas
 
 

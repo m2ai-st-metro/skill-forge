@@ -255,9 +255,29 @@ skills/
 1. **Source Monitoring** -- Checks configured content sources for new material since the last check
 2. **Content Ingestion** -- Downloads content. For videos, uses Gemini's video understanding API
 3. **Technique Extraction** -- Identifies discrete, reusable techniques that could become skills
+3b. **Classification (tool vs technique)** -- Every candidate is classified `technique | tool | other` BEFORE anything is drafted (see below). Only a `technique` continues to step 4; a `tool` exits as a Paperclip evaluation issue, never a SKILL.md
 4. **Skill Generation** -- Structures each technique into SKILL.md with frontmatter, phases, verification steps, source attribution
 5. **Quality Evaluation** -- Ego evaluator (Gemini 2.0 Flash) scores skills on Correctness, Completeness, Clarity, Efficiency
 6. **Human Review** -- Generated skills land as PRs for review before merging
+
+### The classification gate (MAI-206)
+
+PR #112 (`subscription-sdk-bridge`) was a *tool* force-fit into a SKILL.md because the intake assumed every source teaches a technique. The gate asks the question explicitly, at two layers that do not trust each other:
+
+| Layer | Where | What it enforces |
+|-------|-------|------------------|
+| Intake record | `data/intake/<source>-<date>.md`, one `**Classification:** technique \| tool \| other` line per `### idea`, next to `**Routing:**` | `scripts/mark_intake_processed.py` refuses to mark a file processed while any idea lacks the line, or a `tool`/`other` idea is routed `BUILT`. Grep it later: `grep -rn "Classification:.. tool" data/intake/` |
+| Skill sidecar | `skills/<name>/skill-registry.yaml` carries `classification: technique` | `scripts/open-intake-pr.mjs --skill <name>` exits 2 (no branch, no PR) unless exactly one `skills/<name>/` dir is staged and its sidecar, parsed as strict YAML (`scripts/strict_yaml.py`, duplicate keys rejected), resolves top-level `classification` to `technique` |
+
+Classify with the tool-vs-skill triage: **technique** = a repeatable procedure that needs judgment and that a SKILL.md can teach; **tool** = a thing to install or call (an SDK, CLI, MCP server, SaaS); **other** = news, opinion, or a product tour with no procedure.
+
+Exits per class:
+
+- `technique` -> draft `skills/<name>/`, stage it, `node scripts/open-intake-pr.mjs --skill <name>`; intake line `**Routing:** BUILT — \`skills/<name>/\``.
+- `tool` -> NO SKILL.md. File the Pattern-4 discovery exit: `node scripts/open-intake-pr.mjs --tool-issue --name <name> --source-url <url> --summary-file <one-paragraph.txt> --hooks "why it matters here; what it would replace"`. This renders a goal-maker card and routes it through the workspace's one sanctioned intake funnel, `~/.claude/crons/goal-to-issue.mjs` (owner/sink/kill guards, evidence gate, dedup, read-back all live there; `--project <lane>` picks the lane, default `build`). It prints `created MAI-nnn` (or `existing MAI-nnn` if an open one already matches); intake line `**Routing:** CARD — MAI-nnn`. Or `**Routing:** NO-GO — <reason>`.
+- `other` -> `CARD` or `NO-GO`, same as tool.
+
+`--validate-only` runs the allowlist and classification checks without minting a token or touching the network; `--tool-issue --dry-run` prints the card it would hand to the funnel, with no token and no network.
 
 ## Project Structure
 
